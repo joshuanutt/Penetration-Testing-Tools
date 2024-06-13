@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 import os, sys, re
 import string
 import argparse
@@ -13,6 +12,11 @@ try:
 except ImportError:
     print('[!] You need to install bs4:\n\t\tcmd> pip install bs4')
     sys.exit(1)
+
+# Fixes an issue displaying colors on Windows10 command prompt.
+if os.name == 'nt':
+    from colorama import init, Fore, Back, Style
+    init()
 
 options = {
     'format' : 'text',
